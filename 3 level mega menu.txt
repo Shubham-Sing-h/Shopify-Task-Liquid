@@ -1,0 +1,47 @@
+<ol start="1" type="i">
+  {% for link in linklists['main-menu'].links %}
+    <li>
+      <a href="{{ link.url }}">{{ link.title }}</a>
+      <ol>
+        {% for childlink in link.links %}
+          <li>
+            <a href="{{ childlink.url }}">{{ childlink.title }}</a>
+            <ol start="1" type="a">
+              {% for grandchild in childlink.links %}
+                <li>
+                  <a href="{{ grandchild.url }}">{{ grandchild.title }}</a>
+                  {% assign greatgrandchild = grandchild.handle | escape %}
+                  <ul start="1" type="">
+                    {% for greatgrandchild in linklists[greatgrandchild].links %}
+                      <li>
+                        <a href="{{ greatgrandchild.url }}">{{ greatgrandchild.title }}</a>
+                        <ol start="p" type="A">
+                          {% for greatgreatgrandchild in greatgrandchild.links %}
+                            <li>
+                              <a href="{{ greatgreatgrandchild.url }}">{{ greatgreatgrandchild.title }}</a>
+                            </li>
+                          {% endfor %}
+                        </ol>
+                      </li>
+                    {% endfor %}
+                  </ul>
+                </li>
+              {% endfor %}
+            </ol>
+          </li>
+        {% endfor %}
+      </ol>
+    </li>
+  {% endfor %}
+</ol>
+{% schema %}
+{
+  "name": "five level mega menu",
+  "settings": [],
+  "presets": [
+    {
+      "name": "five level mega menu"
+    }
+  ]
+}
+{% endschema %}
