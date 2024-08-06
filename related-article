@@ -1,0 +1,57 @@
+<!-- Snippets/related-article -->
+{%- assign current_article_tags = article.tags -%}
+{%- assign related_articles = blog.articles | where: 'tags', current_article_tags -%}
+{%- assign limited_articles = related_articles | slice: 0, 5 -%}
+{%- assign displayed_articles = 0 -%}
+
+{%- if limited_articles.size > 1 -%}
+  <div class="cstm__heading_related-blog">More From Blogs</div>
+{%- endif -%}
+
+{%- for related_article in limited_articles -%}
+  {%- if related_article.id != article.id -%}
+    <div class="border-bottm-cstm">
+      <div class="cstm-article">
+        <div class="cstm-article--img-mobile">
+          {% if related_article.image %}
+            <img src="{{ related_article.image | img_url: '' }}" alt="{{ related_article.title }}">
+          {% endif %}
+        </div>
+        <div class="cstm-related-article">
+          <div class="cstm-blog-tit">{{ blog.title }}</div>
+          <div class="cstm-article-tit">
+            <a href="{{ related_article.url }}">{{ related_article.title }}</a>
+          </div>
+          <div class="cstm-article-pub-dat">{{ related_article.published_at | date: '%B %d, %Y' }}</div>
+        </div>
+      </div>
+    </div>
+    {%- assign displayed_articles = displayed_articles | plus: 1 -%}
+    {%- if displayed_articles == 4 -%}
+      {%- break -%}
+    {%- endif -%}
+  {%- endif -%}
+{%- endfor -%}
+
+{% style %}
+  .cstm__heading_related-blog+div>div::after {display: none;}
+  .main-cstm-blog{margin-bottom: -45px;}
+  .cstm__heading_related-blog {color: #1D1D1F;font-family: 'Gilroy bold';font-size: 19px;line-height: 23.52px;margin: 65px 0 13px 0;}
+  .cstm-article{position: relative;display:flex;column-gap: 40px; padding-bottom: 25px;margin-bottom: 30px;}
+  .cstm-blog-tit {color: #6E6E73;font-family: 'Gilroy bold';font-size: 12px;line-height: 14.86px;}
+  .cstm-article-tit a{font-family: 'Gilroy bold'; text-decoration: none; font-size: 17px;line-height: 21.05px;color: #1D1D1F;}
+  .cstm-article-pub-dat {font-family:'Gilroy Medium';font-size: 13px;font-weight: 600;line-height: 15.93px;color: #6E6E73;}
+  .cstm-related-article{align-self: center;width: 65%;}
+  .cstm-article::after {content: '';width: 100%;height: 1px;position: absolute;background: #6E6E734D;top: -27px;}
+  /* .cstm__heading_related-blog.page-width + div .cstm-article::after {display: none;} */
+  .cstm-article--img-mobile img {border-radius: 16px;width: 100%;height: 100%;}
+  .cstm-article--img-mobile {width: 265px;height: 135px;}
+  .related-article-cstm {margin-bottom: -30px;}
+  @media screen and (max-width:768px){
+  .related-article-cstm {padding: 0;}
+  .cstm-article--img-mobile {width: 35%;height: 90px;}
+  .cstm-article {column-gap: 20px;}
+  .cstm-article-tit {line-height: 21.05px; margin: 7px 0;}
+  .cstm__heading_related-blog{margin: 55px 0 13px 0;}
+  }
+{% endstyle %}

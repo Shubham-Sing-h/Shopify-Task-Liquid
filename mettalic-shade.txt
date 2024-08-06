@@ -1,0 +1,229 @@
+<div class="section-{{ section.id }}-padding">
+  <div class="personalized_image_text_container_prt">
+    <picture>
+      <source
+        media="(max-width: 749px)"
+        srcset="
+          {{ section.settings.image_mobile_mettalic_shade |img_url:"master" }}&amp;width=375 375w,
+          {{ section.settings.image_mobile_mettalic_shade |img_url:"master" }}&amp;width=550 550w,
+          {{ section.settings.image_mobile_mettalic_shade |img_url:"master" }}&amp;width=750 750w,
+          {{ section.settings.image_mobile_mettalic_shade |img_url:"master" }}&amp;width=1100 1100w,
+          {{ section.settings.image_mobile_mettalic_shade |img_url:"master" }}&amp;width=1500 1500w,
+          {{ section.settings.image_mobile_mettalic_shade |img_url:"master" }}&amp;width=1780 1780w,
+          {{ section.settings.image_mobile_mettalic_shade |img_url:"master" }}&amp;width=2000 2000w,
+          {{ section.settings.image_mobile_mettalic_shade |img_url:"master" }}&amp;width=3000 3000w,
+          {{ section.settings.image_mobile_mettalic_shade |img_url:"master" }}&amp;width=3840 3840w,
+          {{ section.settings.image_mobile_mettalic_shade |img_url:"master" }} 822w
+        "
+        sizes="100vw"
+      >
+      <source
+        media="(min-width: 750px)"
+        srcset="
+          {{ section.settings.image_desktop_mettalic_shade |img_url:"master" }}&amp;width=375 375w,
+          {{ section.settings.image_desktop_mettalic_shade |img_url:"master"}}&amp;width=550 550w,
+          {{ section.settings.image_desktop_mettalic_shade |img_url:"master"}}&amp;width=750 750w,
+          {{ section.settings.image_desktop_mettalic_shade |img_url:"master"}}&amp;width=1100 1100w,
+          {{ section.settings.image_desktop_mettalic_shade |img_url:"master"}}&amp;width=1500 1500w,
+          {{ section.settings.image_desktop_mettalic_shade |img_url:"master"}}&amp;width=1780 1780w
+        "
+        sizes="100vw"
+      >
+      <img src="{{ section.settings.image |img_url:"master" }}&amp;width=1500" width="100%" height="auto" alt="">
+    </picture>
+    <div class="mettalic-txt-heading">{{ section.settings['txt-mettalic-shade'] }}</div>
+    <div class="mettalic-img-fn"><img src="{{ section.settings.blu_img_1 | img_url :'master' }}"></div>
+    <div class="mettalic-img-fast"><img src="{{ section.settings.blu_img_2 | img_url :'master' }}"></div>
+    <div class="mettalic-img-blu_img_3"><img src="{{ section.settings.blue_img_3 | img_url :'master' }}"></div>
+    <div class="mettalic-img-blu_img_4"><img src="{{ section.settings.blue_img_4 | img_url :'master' }}"></div>
+    <div class="mettalic-img-blu_img_5"><img src="{{ section.settings.blue_img_5 | img_url :'master' }}"></div>
+  </div>
+</div>
+{% schema %}
+{
+  "name": "mettalic shade",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image_desktop_mettalic_shade",
+      "label": "select background image desktop"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_mobile_mettalic_shade",
+      "label": "select background image mobile"
+    },
+    {
+      "type": "html",
+      "id": "txt-mettalic-shade",
+      "label": "enter heading text",
+      "default":"Premium Mettalic <span>Shade</span>"
+    },
+    {
+      "type": "image_picker",
+      "id": "blu_img_1",
+      "label": "select image"
+    },
+    {
+      "type": "image_picker",
+      "id": "blu_img_2",
+      "label": "select image"
+    },
+    {
+      "type": "image_picker",
+      "id": "blue_img_3",
+      "label": "select image"
+    },
+    {
+      "type": "image_picker",
+      "id": "blue_img_4",
+      "label": "select image"
+    },
+     {
+      "type": "image_picker",
+      "id": "blue_img_5",
+      "label": "select image"
+    }
+  ],
+  "presets": [
+    {
+      "name": "mettalic shade"
+    }
+  ]
+}
+{% endschema %}
+
+<style>
+          .personalized_image_text_container_prt{
+            position:relative;
+          }
+          .mettalic-txt-heading{
+            position:absolute;
+               background: -webkit-linear-gradient(#603A79, #1A0F31);
+                       background: linear-gradient(to right, #603A79, #1A0F31);
+                       -webkit-background-clip: text;
+                       -webkit-text-fill-color: transparent;
+          }
+          .mettalic-txt-heading {
+            position: absolute;
+            top: 24%;
+            left: 13%;
+            font-size: 34px;
+            color: #fff;
+            font-family: 600 !important;
+            font-weight: 600;
+            width: 211px;
+            line-height: 41px;
+        }
+        .mettalic-img-fn{
+            position: absolute;
+            top: 35%;
+            left: 54%;
+        }
+        .mettalic-img-fast {
+            position: absolute;
+            top: 9%;
+            left: 74%;
+        }
+        .mettalic-img-blu_img_3 {
+            position: absolute;
+            top: 79%;
+            left: 13%;
+        }
+        .mettalic-img-blu_img_4 {
+            position: absolute;
+            top: 62%;
+            left: 32%;
+        }
+        .mettalic-img-blu_img_5 {
+            position: absolute;
+            top: 65%;
+            left: 55%;
+        }
+          .mettalic-img-fn > img {
+            width: 100%;
+        }
+         .mettalic-img-fast img {
+            width: 100%;
+        }
+         .mettalic-img-blu_img_4 img {
+            width: 100%;
+        }
+        .mettalic-img-blu_img_5 img {
+            width: 100%;
+        }
+         .mettalic-img-blu_img_3 img {
+            width: 100%;
+        }
+        @media screen and (max-width:1300px){
+          .mettalic-img-fast {
+          top: 9%;
+          left: 74%;
+          width: 16%;
+      }
+          .mettalic-img-blu_img_3 {
+        position: absolute;
+        top: 78%;
+        width: 12%;
+        left: 13%;
+    }
+          .mettalic-img-blu_img_4 {
+        position: absolute;
+        top: 61%;
+        width: 15%;
+        left: 32%;
+    }
+          .mettalic-img-blu_img_5 {
+        position: absolute;
+        top: 62%;
+        width: 38%;
+        left: 52%;
+    }
+          .mettalic-img-fn {
+      position: absolute;
+      top: 35%;
+      left: 54%;
+      width: 13%;
+  }
+        }
+        @media screen and (max-width:749px){
+          .mettalic-txt-heading {
+            position: absolute;
+            top: 14%;
+          }
+         .mettalic-img-fn {
+            position: absolute;
+            top: 48%;
+            left: 13%;
+            width: 27%;
+        }
+
+        .mettalic-img-fast {
+            position: absolute;
+            top: 34%;
+            width: 37%;
+            left: 57%;
+        }
+
+          .mettalic-img-blu_img_4 {
+            position: absolute;
+            top: 80%;
+            left: 58%;
+            width: 34%;
+        }
+
+          .mettalic-img-blu_img_5 {
+            position: absolute;
+            top: 62%;
+            left: 7%;
+            width: 85%;
+        }
+
+          .mettalic-img-blu_img_3 {
+            position: absolute;
+            top: 90%;
+            left: 13%;
+            width: 30%;
+        }
+        }
+</style>
