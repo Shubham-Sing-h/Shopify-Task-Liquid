@@ -1,0 +1,237 @@
+prerequistce
+1)node :  node -v (node,npm)
+2)git : git --version
+3)installs Shopify CLI globally : npm install -g @shopify/cli@latest
+4)ruby : ruby -v  (ruby,bundle)
+5)gem : gem list
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+shopify cli:
+Step 1: Shopify CLI Install Karna
+	Agar aapne Shopify CLI pehle se install nahi kiya hai, toh pehle yeh install kar lein
+
+Step 2: Shopify Store Mein Login Karna
+	Terminal ya Command Prompt open karein aur apne Shopify account mein login karne ke liye yeh command run karein:
+	##shopify login --store your-store-name.myshopify.com
+	Yahan your-store-name ko apne store ke domain name se replace karein.
+
+Step 3: Theme Pull Karna (Local Code Setup)
+	CLI ka use karke apne Shopify store ki theme ko apne local system par pull karein. Iske liye yeh command use karein:
+	##shopify theme pull
+	Yeh aapke store ki current theme ko aapke local machine par download kar dega, jisse aap asaani se code ko apne preferred code editor (VS Code, Sublime Text, etc.) mein edit kar paayein.
+
+Step 4: Local Code Ko Edit Karna
+	Ab aap apne local machine par store ka code edit kar sakte hain. Sabhi changes aap apne editor mein karenge, aur wo changes live theme mein reflect nahi honge jab tak aap changes ko push nahi karte.
+
+Step 5: Theme Push Karna (Changes Apply Karna)
+	Jab aap apne local machine par code changes kar lein, toh aap unhe store par live karne ke liye yeh command use kar sakte hain:
+	##shopify theme push
+	Yeh command aapke local theme changes ko Shopify store mein push kar degi, jisse aapke changes live ho jaayenge.
+
+Step 6: Development Mode Mein Kaam Karna
+	Agar aap apne changes ko live dekhe bina Shopify admin ko affect kiye bina test karna chahte hain, toh yeh command kaafi useful hai:
+	##shopify theme serve
+	Yeh command local server start karti hai aur aap apne browser mein changes ko real-time dekh sakte hain bina unhe live kiye hue.
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Yeh steps aapko guide karenge ki kaise aap Shopify CLI ko Git ke saath integrate kar sakte hain taaki aap apne Shopify theme ka code version control mein rakh sakein aur usse efficiently manage kar sakein.
+
+Step-by-Step Guide: Shopify CLI ko Git ke Saath Connect Karna
+Step 1: Local Environment Setup
+	Pehle ensure karein ki aapka local environment properly set up ho aur aap Shopify CLI ka use kar rahe hain.
+
+Shopify CLI Login:
+
+Open your terminal and login to Shopify CLI:
+
+Copy code
+	shopify login --store your-store-name.myshopify.com
+Pull the Theme:
+
+Apne Shopify store ki theme ko local machine par pull karein:
+
+Copy code
+	shopify theme pull     ||     (shopify theme pull --store your-store-name.myshopify.com)
+Isse aapka theme code local folder mein aa jayega.
+
+Step 2: Git Initialize Karna
+Ab aapko apne local theme folder mein Git initialize karna hoga.
+
+Terminal ya Command Prompt open karein aur apne local theme folder mein navigate karein:
+
+Copy code
+	cd path/to/your/theme/folder
+	Git Initialize karne ke liye yeh command run karein:
+
+Copy code
+	git init
+Isse aapka local theme folder ek Git repository ban jayega aur Git tracking start ho jayega.
+
+Step 3: Remote Repository Create Karna
+Ab aapko ek remote Git repository create karni hogi jahan aap apne code ko remotely store kar sakte hain. Yeh aap GitHub, GitLab, ya Bitbucket pe kar sakte hain.
+
+GitHub/GitLab/Bitbucket pe jaake ek nayi repository create karein.
+Apne repository ka URL copy karein.
+
+Step 4: Git Repository Ko Local Theme Se Connect Karna
+Ab apne local Git repository ko remote repository ke saath connect karein.
+
+Remote repository ko add karne ke liye terminal mein yeh command run karein:
+
+Copy code
+	git remote add origin <your-repository-url>
+your-repository-url ko apne remote repository URL se replace karein (jo aapne GitHub/GitLab pe create ki hai).
+
+Step 5: Files Ko Git Ke Saath Track Karna
+Ab aap apne local files ko Git ke saath track karenge taaki aap jo bhi changes karein wo save aur track ho sakein.
+
+Add all files to Git:
+
+Copy code
+	git add .
+Ab ek commit banayein jo aapke changes ko Git mein save karega:
+
+bash
+Copy code
+	git commit -m "Initial commit of Shopify theme"
+
+Step 6: Local Changes Ko Remote Repository Mein Push Karna
+Ab apne local changes ko apni remote repository (GitHub/GitLab) pe push karne ka time hai.
+
+Push the code to your remote repository:
+
+Copy code
+	git push -u origin main
+Agar aap main branch ka naam kuch aur use kar rahe hain (e.g., master), toh usse accordingly replace karein.
+Step 7: Branching (Optional)
+Agar aapko ek nayi feature ya experiment karna hai bina main code ko disturb kiye, toh aap ek nayi branch bana sakte hain:
+
+Branch create karne ke liye:
+
+
+Copy code
+	git checkout -b new-feature
+Apne changes ko naye branch mein commit karein, aur jab sab kuch sahi lagta hai, toh main branch mein merge karein:
+
+Copy code
+git add .
+git commit -m "New feature added"
+git checkout main
+git merge new-feature
+Step 8: Theme Changes Deploy Karna
+Ab jab aap apne code mein changes karte hain aur unhe Shopify store par reflect karna chahte hain, toh Shopify CLI ka use karein:
+
+Push theme changes to Shopify store:
+
+Copy code
+	shopify theme push
+Isse aapke Git mein commit kiye gaye changes Shopify store par live ho jayenge.
+
+Step 9: Pull Changes From Remote
+Agar aap kisi aur ke saath collaborate kar rahe hain ya remote repository mein changes aaye hain, toh aapko unhe apne local folder mein pull karna padega:
+
+Pull changes from the remote repository:
+
+Copy code
+git pull origin main
+
+Summary of Commands:
+Git Initialize: git init
+Remote Repository Add: git remote add origin <your-repository-url>
+Add Files to Git: git add .
+Commit Changes: git commit -m "Commit message"
+Push Changes: git push -u origin main
+Pull Latest Changes: git pull origin main
+Is process ke through aap apne Shopify CLI workflow ko Git ke saath integrate kar sakte hain aur apne code ko version control ke saath manage kar sakte hain, jo development aur collaboration ko kaafi smooth bana dega.
+
+
+
+
+
+
+You said:
+git checkout main
+
+use of this command
+ChatGPT said:
+ChatGPT
+The command git checkout main ka use Git repository mein specific branch ko switch karne ke liye kiya jata hai. Yahaan par "main" branch ka naam hai, jo ki aksar default branch hoti hai Git repositories mein (pehle isse master kaha jata tha).
+
+git checkout main ka Use:
+Branch Switching: Jab aap git checkout main command chalate hain, toh aap Git ko batate hain ki aap "main" branch par switch karna chahte hain. Yeh aapko main branch par le jata hai, jahan aapne pehle se commits kiye hain ya aap naye changes kar sakte hain.
+
+Work on Main Branch: Aap jab main branch par switch karte hain, toh aap main codebase par kaam kar sakte hain, jaise naye features add karna, bug fixes karna, ya existing code ko modify karna.
+
+View Latest Changes: Is command ka use karne se aap main branch par latest changes dekh sakte hain. Agar kisi ne main branch mein naye changes commit kiye hain, toh aap unhe bhi dekh sakte hain.
+
+Merge Changes: Aksar, aapko naye features ya fixes ke liye alag branches par kaam karna padta hai. Jab aap un changes ko main branch mein merge karna chahte hain, toh aapko pehle main branch par switch karna padega.
+
+Example Scenario:
+Branch Creation: Agar aapne ek nayi feature branch banayi hai, jise aapne naam diya new-feature, aur aap us feature ko main branch par merge karna chahte hain, toh aap pehle main branch par switch karenge:
+
+bash
+Copy code
+git checkout main
+Merging Changes: Phir aap new-feature branch ko main branch mein merge kar sakte hain:
+
+bash
+Copy code
+git merge new-feature
+Note:
+Agar aapki Git version 2.23 ya usse upar hai, toh aap git switch command ka bhi use kar sakte hain branch switch karne ke liye, jo zyada intuitive hai:
+bash
+Copy code
+git switch main
+Conclusion:
+git checkout main command ka use aapko specific branch par switch karne ke liye kiya jata hai, jisse aap apne changes ko manage kar sakein aur kaam ko streamline kar sakein.
+
+
+
+
+
+
+You said:
+1. `git merge new-feature`
+
+iska kya use hai
+ChatGPT said:
+ChatGPT
+The command git merge new-feature ka use aapke Git repository mein ek branch ke changes ko doosri branch mein merge karne ke liye kiya jata hai. Yahaan par new-feature wo branch hai jisse aap changes ko merge karna chahte hain, aur aap usually is command ka use main branch (ya kisi aur target branch) par karte hain.
+
+git merge new-feature ka Use:
+Feature Integration: Jab aapne new-feature branch par kaam kiya hai (jaise naye features ya bug fixes implement kiye hain), toh aap git merge new-feature command ka use karke in changes ko main branch (ya kisi aur branch) mein integrate kar sakte hain.
+
+Combine Changes: Is command se aap new-feature branch ke changes ko main branch ke saath combine karte hain. Isse main branch mein naye features ya improvements add ho jaate hain.
+
+Collaboration: Agar aap ek team mein kaam kar rahe hain, toh aap alag-alag features ke liye alag branches bana sakte hain. Jab sabhi features tayar ho jaate hain, toh aap unhe main branch mein merge kar sakte hain.
+
+History Preservation: Merge command ka use karne se aapki branch ki history preserve hoti hai. Aap dekh sakte hain ki new-feature branch par kya changes hue the aur kis waqt unhe main branch mein merge kiya gaya.
+
+Example Scenario:
+Nayi Feature Develop Karna:
+
+Aapne new-feature naam ki branch create ki:
+
+bash
+Copy code
+git checkout -b new-feature
+Us branch par kuch code likha aur changes kiye.
+
+Main Branch Par Switch Karna:
+
+Aapne changes complete kiye, ab aap main branch par switch karte hain:
+bash
+Copy code
+git checkout main
+Merge Changes:
+
+Ab aap new-feature branch ke changes ko main branch mein merge karte hain:
+bash
+Copy code
+git merge new-feature
+Conflict Handling (if any):
+
+Agar aapke new-feature branch mein changes aise hain jo main branch ke changes se conflict karte hain, toh Git aapko conflicts resolve karne ke liye kahega. Aapko conflicts resolve karne ke baad changes ko commit karna hoga.
+Conclusion:
+git merge new-feature command ka use aapko alag branch ke changes ko main branch mein merge karne ke liye kiya jata hai, jisse aap apne codebase ko update kar sakte hain aur naye features ko integrate kar sakte hain. Is process se aap apne project ko organized aur efficient tarike se manage kar sakte hain.
+
