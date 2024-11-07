@@ -30,7 +30,7 @@ Step 5: Theme Push Karna (Changes Apply Karna)
 
 Step 6: Development Mode Mein Kaam Karna
 	Agar aap apne changes ko live dekhe bina Shopify admin ko affect kiye bina test karna chahte hain, toh yeh command kaafi useful hai:
-	##shopify theme serve
+	##shopify theme serve {this command is depriciated , now we are using -----  shopify theme dev command}
 	Yeh command local server start karti hai aur aap apne browser mein changes ko real-time dekh sakte hain bina unhe live kiye hue.
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
