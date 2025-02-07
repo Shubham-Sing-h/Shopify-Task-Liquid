@@ -1,0 +1,26 @@
+<button id="add-to-cart-button" data-variant-id={{ product.variants.first.id }}>Add To Cart</button>
+
+<script>
+  document.getElementById('add-to-cart-button').addEventListener('click',function(){
+    let variantId = this.getAttribute('data-variant-id');
+    let quantity = 1;
+    fetch('/cart/add.js',{
+      method: 'POST',
+      headers: {
+        'Content-type' : 'application/json'
+      },
+      body: JSON.stringify({
+        id: variantId,
+        quantity: quantity
+      })
+    })
+    .then(response => response.json )
+    .then(data => {
+      console.log("added to cart",data);
+      alert("added to cart")
+    })
+    .catch(error => {
+      console.log("error is : ", error);
+    })
+  })
+</script>
